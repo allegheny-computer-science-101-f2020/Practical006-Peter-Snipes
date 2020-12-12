@@ -1,0 +1,73 @@
+---
+name: cs101f2020-practical06
+break: true
+indent: 4
+---
+
+# Learn more about GatorGrader and its supported checks by visiting this web site:
+# https://github.com/GatorEducator/gatorgrader
+
+# Explanation:
+# --> a check without an "--exact" runs a count for an entity as an "at least"
+# --> checks below a file in a specified directory are for that specific file and directory
+# --> checks that appear stand-alone are for an entire Git repository
+
+# --> check the source code for various characteristics
+src/main:
+    java:
+        practicalsix/DoublyLinkedList.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "Add Your Name Here" --count 0 --exact
+            MatchFileFragment --fragment "package practicalsix" --count 1 --exact
+            MatchFileFragment --fragment "public DoublyLinkedList()" --count 1
+            MatchFileFragment --fragment "public int getSize()" --count 1
+            MatchFileFragment --fragment "public boolean isEmpty()" --count 1
+            MatchFileFragment --fragment "public E getFirst()" --count 1
+            MatchFileFragment --fragment "public E getLast()" --count 1
+            MatchFileFragment --fragment "public void addFirst(" --count 1
+            MatchFileFragment --fragment "public void addLast(" --count 1
+            MatchFileFragment --fragment "public E removeFirst()" --count 1
+            MatchFileFragment --fragment "public E removeLast()" --count 1
+
+# --> check the source code for various characteristics
+src/main:
+    java:
+        practicalsix/Experiment.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "Add Your Name Here" --count 0 --exact
+            MatchFileFragment --fragment "package practicalsix" --count 1 --exact
+            MatchFileFragment --fragment "System.out.print" --count 8
+            MatchFileFragment --fragment "DoublyLinkedList" --count 1
+            MatchFileFragment --fragment ".getSize()" --count 1
+            MatchFileFragment --fragment ".isEmpty()" --count 1
+            MatchFileFragment --fragment ".getFirst()" --count 1
+            MatchFileFragment --fragment ".getLast()" --count 1
+            MatchFileFragment --fragment ".addFirst(" --count 1
+            MatchFileFragment --fragment ".addLast(" --count 1
+            MatchFileFragment --fragment ".removeFirst()" --count 1
+            MatchFileFragment --fragment ".removeLast()" --count 1
+# --> check the source code for various characteristics
+src/test:
+    java:
+        practicalsix/TestDoublyLinkedList.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "Add Your Name Here" --count 0 --exact
+            MatchFileFragment --fragment "package practicalsix" --count 1 --exact
+            MatchFileFragment --fragment "@Test" --count 10 --exact
+
+# --> check that the number of commits in the Git repository is beyond a baseline
+CountCommits --count 2
+
+# --> check that the program builds, tests, and executes correctly
+ExecuteCommand --command "gradle build"
+ExecuteCommand --command "gradle test"
+
+# NOTE: Optionally, run the gradle run command, bearing in mind that it could take a full minute
+#
+# ExecuteCommand --command "gradle -q --console plain run"
+
+# --> NOTE: Do not run repeated checks on the content of the output since this program runs
+# a campaign of experiments and inefficient programs could take too long to repeatedly run
