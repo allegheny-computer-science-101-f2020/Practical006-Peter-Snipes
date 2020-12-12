@@ -8,7 +8,7 @@ import practicalsix.DoublyLinkedList;
  * different number of rounds for different methods of SinglyLinkedList.
  *
  * @author Janyl Jumadinova
- * @author Add Your Name Here
+ * @author Peter Snipes
  */
 
 public class Experiment {
@@ -24,26 +24,22 @@ public class Experiment {
       list.addLast(Integer.toString(i));
     }
 
-    // TODO: Add a print statement displaying the size of the list
+    System.out.println("Size: " + list.getSize());
+    System.out.println("Is Empty ? " + list.isEmpty());
+    System.out.println("First element: " + list.getFirst());
+    System.out.println("Last element: " + list.getLast());
 
-    // TODO: Add a print statement indicating if the list is empty
+    list.addFirst("new data");
+    System.out.println("Updated after addition front: " + list.toString());
 
-    // TODO: Add a print statement displaying the first element of the list
+    list.addLast("new data");
+    System.out.println("Updated after addition front: " + list.toString());
 
-    // TODO: Add a print statement displaying the last element of the list
+    list.removeFirst();
+    System.out.println("Updated after removal front: " + list.toString());
 
-    // TODO: Add a statement to add to the front of the list
-    // TODO: Add a print statement displaying the updated list
-
-    // TODO: Add a statement to add to the end of the list
-    // TODO: Add a print statement displaying the updated list
-
-    // TODO: Add a statement to remove from the front of the list
-    // TODO: Add a print statement displaying the updated list
-
-    // TODO: Add a statement to remove from the end of the list
-    // TODO: Add a print statement displaying the updated list
-
+    list.removeLast();
+    System.out.println("Updated after addition last: " + list.toString());
   }
 
 }

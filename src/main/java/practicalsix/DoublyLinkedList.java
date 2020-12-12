@@ -100,7 +100,7 @@ public class DoublyLinkedList<E> implements Cloneable {
     public void setNext(Node<E> next) {
       this.next = next;
     }
-  }
+  } //end of Node class.
 
   /** The head node of the list. */
   private Node<E> head;
@@ -140,7 +140,10 @@ public class DoublyLinkedList<E> implements Cloneable {
   * @return element at the front of the list (or null if empty)
   */
   public E getFirst() {
-    // TODO: implement this method
+    if (isEmpty()) {
+      return null;
+    }
+    return head.getNext().getElement();
   }
 
   /**
@@ -148,48 +151,66 @@ public class DoublyLinkedList<E> implements Cloneable {
   * @return element at the end of the list (or null if empty)
   */
   public E getLast() {
-    // TODO: implement this method
+    if (isEmpty()) {
+      return null;
+    }
+    return tail.getPrev().getElement();
+  }
+
   }
 
   /** Add method to add an element to the front of the list.
   * @param element the new element to add
   */
   public void addFirst(E element) {
-    // TODO: implement this method
+    addBetween(element, head, head.getNext());
   }
 
   /** Add element to the end of the list.
   * @param element the new element to add
   */
   public void addLast(E element) {
-    // TODO: implement this method
+     addBetween(element, tail.getPrev(), tail);
   }
 
   /** Remove the first element of the list.
   * @return the removed element
   */
   public E removeFirst() {
-    // TODO: implement this method
+    if (isEmpty()) {
+      return null;
+    }
+    return remove(head.getNext());
   }
 
   /** Remove the last element of the list.
   * @return the removed element
   */
   public E removeLast() {
-    // TODO: implement this method
+    if (isEmpty()) {
+      return null;
+    }
+    return remove(tail.getPrev());
   }
 
   /** Add element in between the given nodes.
   */
   private void addBetween(E element, Node<E> predecessor, Node<E> successor) {
-    // TODO: implement this method
+  Node<E> newest = new Node<>(element, predecessor, successor);
+  predecessor.setNext(newest);
+  successor.setPrev(newest);
   }
 
   /** Remove the given node from the list.
   * @return the removed element
   */
   private E remove(Node<E> node) {
-    // TODO: implement this method
+    Node<E> predecessor = node.getPrev();
+    Node<E> successor = node.getNext();
+    predecessor.setNext(successor);
+    successor.setPrev(predecessor);
+    size--;
+    return node.getElement();
   }
 
   /**
@@ -209,5 +230,4 @@ public class DoublyLinkedList<E> implements Cloneable {
     sb.append(")");
     return sb.toString();
   }
-
 }
